@@ -1,13 +1,10 @@
 @import "variables";
 @function font-weight($keyword) {
   	$conversion-map: (
-    	  thin: 100,
     	  hairline: 100,
-    	  extralight: 200,
     	  light: 300,
     	  extra bold: 800,
     	  size-50: 50,
-    	  size-20: 20,
     	  size-30: 30,
     	  size-14: 14,
     	  bold: bold,
@@ -190,8 +187,8 @@ li {
 .eight-zero-zero, .li-three, .li-two {
     margin: 10px 0px 0px 40px;
 }
-.right-top-three-one {
-    margin: 40px;
+.right-top-three-one, .right-top-four-one {
+    margin: 40px 0 50px 40px;
     padding: 10px 0 100px 0;
 }
 .right-top-two-right img {
@@ -207,14 +204,33 @@ li {
     margin: 25px 0px 50px 80px;
     width: 120px;
 }
-.right-top-three {
+.right-top-three, .right-top-four {
     margin: 2% 0 0 0;
 }
-.right-top-three-one li:nth-child(2) {
-    padding: 15px 0 0 0;
+.right-top-three-one ul, .right-top-four-one ul {
+    &:first-child {
+        li {
+            &:last-child {
+                padding: 15px 0 0 0;
+            }
+        }
+    }
 }
-.right-top-three-one li:first-child {
-    @include font-size('size-30');
+.right-top-three-one ul, .right-top-four-one ul {
+    &:first-child {
+        li {
+            &:first-child {
+                @include font-size('size-30');
+            }
+        }
+    }
+}
+.right-top-four-one ul {
+    &:last-child {
+        li {
+            padding: 15px;
+        }
+    }
 }
 .right-top-three-one > div {
     margin-top: 5%;
@@ -241,6 +257,10 @@ li {
     color: $color-gray;
     @extend .font-12;
 }
+@mixin grid-margin-display($margin, $display) {
+    margin: $margin;
+    display: $display;
+}
 .grid-1, .grid-2, .grid-3, .grid-4 {
     @include height-width(49%, 35%);
     @include pad(0 0 0 25px);
@@ -263,55 +283,70 @@ li {
 .inline-block {
     display: inline-block;
 }
-.grid-1 span:nth-child(1), .grid-1 span:nth-child(2), .grid-3 span:nth-child(1), .grid-4 span:nth-child(1) {
+.grid-span-first-child {
     @include height-width(20px, 30px);
     margin-top: 30px;
     background-color: $default-color;
     padding-top: 5px;
 }
-.grid-1 span:nth-child(2) {
+.grid-1 span {
+    &:first-child {
+        @extend .grid-span-first-child;
+    }
+    &:nth-child(2) {
+        @extend .grid-span-first-child;
+    }
+}
+.grid-3 span, .grid-4 span {
+    &:first-child {
+        @extend .grid-span-first-child;
+    }
+}
+.right {
     float: right;
 }
-.grid-1 span:nth-child(3), .grid-2 span:nth-child(2) {
-    margin-top: 35px;
-    display: block;
+.grid-1 span {
+    &:last-child {
+      @include grid-margin-display(35px 0 0 0, block);
+      float: clear;
+    }
+}
+.grid-2-span-last-child {
+    @include grid-margin-display(25px 0 0 0, block);
     float: clear;
 }
-.grid-2 span:nth-child(1) {
-    @include height-width(30px, 30px);
-    @include pad(0 0 0 0);
-    margin-top: 27px;
-    background: repeating-linear-gradient(-55deg,#cc0000,#cc0000 1px,#FFFFFF 5px,#333 2px)
+.grid-2 span {
+    &:first-child {
+        @include height-width(30px, 30px);
+        @include pad(0 0 0 0);
+        margin-top: 27px;
+        background: repeating-linear-gradient(-55deg,#cc0000,#cc0000 1px,#FFFFFF 5px,#333 2px)
+    }
+    @extend .grid-2-span-last-child
 }
-.grid-3 span:nth-child(1), .grid-4 span:nth-child(1) {
-    margin-top: 45px;
-    background-color: #ffbd33;
+.grid-3 span {
+    &:first-child {
+        background-color: #ffbd33;
+    }
+    @extend .grid-2-span-last-child;
 }
-.grid-3 span:nth-child(2), .grid-4 span:nth-child(2) {
-    margin-top: 25px;
-    display: block;
+.grid-4 span {
+    &:first-child {
+        background-color: #c133ff;
+    }
+    &:last-child {
+        @include grid-margin-display(25px 0 0 0, block);
+    }
 }
-.grid-4 span:nth-child(1) {
-    background-color: #c133ff;
-}
-.grid-right-row div:nth-child(3) {
-    padding-left: 40px;
+.italic {
     font-style: italic;
+}
+.grid-right-row div {
+    &:nth-child(3) {
+        padding-left: 40px;
+        @extend .italic;
+    }
 }
 .grid-right-row div:nth-child(2) {
     padding-left: 20px;
-}
-.grid-right-footer li:nth-child(3) {
-    @include height-width(35px, 150px);
-    border: 3px solid $color-white;
-    margin: 20px 0px 15px 0;
-    background-color: $color-white;
-}
-.width-100 {
-    width: 100%;
-}
-.grid-right-footer li:nth-child(1) {
-    @include height-width(35px, 35px);
-    border: 3px solid white;
-    margin: 20px 0px 15px 0;
 }

@@ -140,8 +140,8 @@ li {
 .eight-zero-zero, .li-three, .li-two {
   margin: 10px 0px 0px 40px; }
 
-.right-top-three-one {
-  margin: 40px;
+.right-top-three-one, .right-top-four-one {
+  margin: 40px 0 50px 40px;
   padding: 10px 0 100px 0; }
 
 .right-top-two-right img {
@@ -163,14 +163,17 @@ li {
   margin: 25px 0px 50px 80px;
   width: 120px; }
 
-.right-top-three {
+.right-top-three, .right-top-four {
   margin: 2% 0 0 0; }
 
-.right-top-three-one li:nth-child(2) {
+.right-top-three-one ul:first-child li:last-child, .right-top-four-one ul:first-child li:last-child {
   padding: 15px 0 0 0; }
 
-.right-top-three-one li:first-child {
+.right-top-three-one ul:first-child li:first-child, .right-top-four-one ul:first-child li:first-child {
   font-size: 30; }
+
+.right-top-four-one ul:last-child li {
+  padding: 15px; }
 
 .right-top-three-one > div {
   margin-top: 5%; }
@@ -217,58 +220,48 @@ li {
 .inline-block {
   display: inline-block; }
 
-.grid-1 span:nth-child(1), .grid-1 span:nth-child(2), .grid-3 span:nth-child(1), .grid-4 span:nth-child(1) {
+.grid-span-first-child, .grid-1 span:first-child, .grid-1 span:nth-child(2), .grid-3 span:first-child, .grid-4 span:first-child {
   height: 20px;
   width: 30px;
   margin-top: 30px;
   background-color: #0096ED;
   padding-top: 5px; }
 
-.grid-1 span:nth-child(2) {
+.right {
   float: right; }
 
-.grid-1 span:nth-child(3), .grid-2 span:nth-child(2) {
-  margin-top: 35px;
+.grid-1 span:last-child {
+  margin: 35px 0 0 0;
   display: block;
   float: clear; }
 
-.grid-2 span:nth-child(1) {
+.grid-2-span-last-child, .grid-2 span, .grid-3 span {
+  margin: 25px 0 0 0;
+  display: block;
+  float: clear; }
+
+.grid-2 span:first-child {
   height: 30px;
   width: 30px;
   padding: 0 0 0 0;
   margin-top: 27px;
   background: repeating-linear-gradient(-55deg, #cc0000, #cc0000 1px, #FFFFFF 5px, #333 2px); }
 
-.grid-3 span:nth-child(1), .grid-4 span:nth-child(1) {
-  margin-top: 45px;
+.grid-3 span:first-child {
   background-color: #ffbd33; }
 
-.grid-3 span:nth-child(2), .grid-4 span:nth-child(2) {
-  margin-top: 25px;
-  display: block; }
-
-.grid-4 span:nth-child(1) {
+.grid-4 span:first-child {
   background-color: #c133ff; }
 
-.grid-right-row div:nth-child(3) {
-  padding-left: 40px;
+.grid-4 span:last-child {
+  margin: 25px 0 0 0;
+  display: block; }
+
+.italic, .grid-right-row div:nth-child(3) {
   font-style: italic; }
+
+.grid-right-row div:nth-child(3) {
+  padding-left: 40px; }
 
 .grid-right-row div:nth-child(2) {
   padding-left: 20px; }
-
-.grid-right-footer li:nth-child(3) {
-  height: 35px;
-  width: 150px;
-  border: 3px solid #FFFFFF;
-  margin: 20px 0px 15px 0;
-  background-color: #FFFFFF; }
-
-.width-100 {
-  width: 100%; }
-
-.grid-right-footer li:nth-child(1) {
-  height: 35px;
-  width: 35px;
-  border: 3px solid white;
-  margin: 20px 0px 15px 0; }
