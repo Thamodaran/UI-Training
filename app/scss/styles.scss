@@ -1,35 +1,8 @@
-@import "variables";
-@function font-weight($keyword) {
-  	$conversion-map: (
-    	  hairline: 100,
-    	  light: 300,
-    	  extra bold: 800,
-    	  size-50: 50,
-    	  size-30: 30,
-    	  size-14: 14,
-    	  bold: bold,
-    	);
-  	@if not map-has-key($conversion-map, $keyword) {
-  		  @error "Unsupported `font-weight` keyword `#{$keyword}`";
-            @return null;
-  	}
-        @return map-get($conversion-map, $keyword);
-}
-@mixin font-weight($keyword) {
-    font-weight: font-weight($keyword);
-}
-@mixin font-size($keyword) {
-    font-size: font-weight($keyword);
-}
-@mixin font-bold($keyword) {
-    font-weight: font-weight($keyword);
-}
-@mixin height-width($height, $width) {
-    height: $height;
-    width: $width;
-}
+@import "_variables";
+@import "_mixin";
+@import "_skill";
 .box-shadow {
-    box-shadow: 5px 5px 45px lightgray;;
+    box-shadow: 5px 5px 45px lightgray;
 }
 .bold {
     @include font-bold(bold);
@@ -70,11 +43,6 @@ $margin : percentage(1.5/$default-width);
 }
 .circle {
     border-radius: 50%;
-}
-
-@mixin width-margin($width, $margin) {
-    width: $width;
-    margin: $margin;
 }
 .overall {
     background-color: #F8F8F8;
@@ -143,13 +111,6 @@ li {
 .right-top-one li:last-child {
     padding: 20px 0px 20px 20px;
 }
-@mixin position-relative($position, $top, $right, $bottom, $left) {
-    position: $position;
-    top: $top;
-    right: $right;
-    bottom: $bottom;
-    left: $left;
-}
 .nav-hover {
     display: block;
     height: 30px;
@@ -207,23 +168,11 @@ li {
 .right-top-three, .right-top-four {
     margin: 2% 0 0 0;
 }
-.right-top-three-one ul, .right-top-four-one ul {
-    &:first-child {
-        li {
-            &:last-child {
-                padding: 15px 0 0 0;
-            }
-        }
-    }
+.p-t-15 {
+    padding: 15px 0 0 0;
 }
-.right-top-three-one ul, .right-top-four-one ul {
-    &:first-child {
-        li {
-            &:first-child {
-                @include font-size('size-30');
-            }
-        }
-    }
+.font-30 {
+    font-size : 30px;
 }
 .right-top-four-one ul {
     &:last-child {
@@ -241,9 +190,6 @@ li {
 .grid {
     height: 40%;
 }
-@mixin pad ($pads) {
-  padding: $pads;
-}
 .grid-right {
     @include height-width(40%, 50%);
     display: table;
@@ -256,10 +202,6 @@ li {
     display: table-cell;
     color: $color-gray;
     @extend .font-12;
-}
-@mixin grid-margin-display($margin, $display) {
-    margin: $margin;
-    display: $display;
 }
 .grid-1, .grid-2, .grid-3, .grid-4 {
     @include height-width(49%, 35%);
