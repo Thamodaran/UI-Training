@@ -1,0 +1,36 @@
+header ul li{
+    display: inline-block;
+    color: #FFFFFF;
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 2px solid #5fcdee;
+}
+body {
+    background-color: rgba(192,192,192,0.5);
+}
+section span {
+    display: block;
+    padding: 10px 0 0 15px;
+    margin-left: 125px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+section span:first-child {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 5px;
+    margin-left: 20px;
+}
+ol li{
+    padding: 5px;
+}
+.output {
+    margin-left: 125px;
+    color: green;
+}
+.index-overall {
+    margin: 20px 0 0 50px;    
+}
+.index-overall-head{
+    font-weight: bold;
+}
