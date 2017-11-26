@@ -1,56 +1,57 @@
 <html>
-  <head>
-    <script src="./js/custom.js"></script>  
-    <link rel="stylesheet" href="./css/custom.css">
-  </head>
-  <body>
-    <header style="width:100%;height: 50px;background-color: #666699;">
-      <ul>
-        <li>JS-Tasks</li>
-        <li onclick="appendDateResult()">Get Current Date</li>
-        <li onclick="appendChangingPositionResult()">Changing Position</li>
-        <li onclick="appendLongStringResult()">Find Longest Word</li>
-        <li onclick="appendCoinsResult()">Convert Amt To Coins</li>
-        <li onclick="appendjoinResult()">Join Array</li>
-      </ul>
-    </header>
-    <div id="content"></div>
-    <section class="index-overall">
-        <div class="index-overall-head">
-            Over all task list
-        </div>      
-        <div>
-            <ol>
-                <li>Get the current date</li>
-                <ul>
-                    <li>Expected Output :</li>
-                    <ul>
-                        <li>mm-dd-yyyy</li>
-                        <li>mm/dd/yyyy</li>
-                        <li>dd-mm-yyyy</li>
-                        <li>dd/mm/yyyy</li>
-                    </ul>
-                </ul>
-                <li>Create a new string from a given string changing the position of first and last characters. The string length must be greater than or equal to 1.</li>
-                <li>Function that accepts a string as a parameter and find the longest word within the string.</li>
-                <ul>
-                    <li>Example string : 'Web Development Tutorial'</li>
-                    <li>Expected Output : 'Development'</li>
-                </ul>
-                <li>Function to convert an amount to coins => 46  amount. and 25, 10, 5, 2, 1 are coins.</li>
-                <ul>
-                    <li>Output : 25, 10, 10, 1</li>
-                </ul>
-                <li>Join all elements of the following array into a string</li>
-                <ul>
-                    <li>Sample array : myColor = ["Red", "Green", "White", "Black"];</li>
-                    <li>Expected Output :</li>
-                    <li>Red,Green,White,Black</li>
-                    
-                </ul>
-            </ol>
-            
-        </div>
-    </section>
-  </body>
+    <head>
+        <script src="./js/custom.js"></script>  
+        <link rel="stylesheet" href="./css/custom.css">
+    </head>
+    <body>
+        <header style="width:100%;height: 50px;background-color: #666699;">
+            <ul>
+                <li onclick="appendIndexResult()">JS-Tasks</li>
+                <li onclick="appendDateResult()">Get Current Date</li>
+                <li onclick="appendChangingPositionResult()">Changing Position</li>
+                <li onclick="appendLongStringResult()">Find Longest Word</li>
+                <li onclick="appendCoinsResult()">Convert Amt To Coins</li>
+                <li onclick="appendjoinResult()">Join Array</li>
+            </ul>
+        </header>
+        <div id="content">
+            <section class="index-overall">
+                <div class="index-overall-head">
+                    Over all task list
+                </div>      
+                <div>
+                    <ol>
+                        <li>Get the current date</li>
+                        <ul>
+                            <li>Expected Output :</li>
+                            <ul>
+                                <li>mm-dd-yyyy</li>
+                                <li>mm/dd/yyyy</li>
+                                <li>dd-mm-yyyy</li>
+                                <li>dd/mm/yyyy</li>
+                            </ul>
+                        </ul>
+                        <li>Create a new string from a given string changing the position of first and last characters. The string length must be greater than or equal to 1.</li>
+                        <li>Function that accepts a string as a parameter and find the longest word within the string.</li>
+                        <ul>
+                            <li>Example string : 'Web Development Tutorial'</li>
+                            <li>Expected Output : 'Development'</li>
+                        </ul>
+                        <li>Function to convert an amount to coins => 46  amount. and 25, 10, 5, 2, 1 are coins.</li>
+                        <ul>
+                            <li>Output : 25, 10, 10, 1</li>
+                        </ul>
+                        <li>Join all elements of the following array into a string</li>
+                        <ul>
+                            <li>Sample array : myColor = ["Red", "Green", "White", "Black"];</li>
+                            <li>Expected Output :</li>
+                            <li>Red,Green,White,Black</li>
+
+                        </ul>
+                    </ol>
+
+                </div>
+            </section>
+        </div>    
+    </body>
 </html>
