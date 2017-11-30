@@ -1,5 +1,5 @@
 window.onload = function(){
-  var body = document.getElementsByTagName("BODY");  
+  var body = document.getElementsByTagName("BODY");
   var elements = [{"element":"input","id": "negative-x", "type": "text","method":"checkValidations(this);","event": "onchange"},
                   {"element":"input","id": "positive-x", "type": "text","method":"checkValidations(this);","event": "onchange"},
                   {"element":"input","id": "milli", "type": "text","method":"checkValidations(this);","event": "onchange"},
@@ -8,7 +8,7 @@ window.onload = function(){
     var element = renderElement(elements[i]);
     var errorSpan = createErrorSpan(elements[i]);
     var divElement = document.createElement("div");
-    divElement.setAttribute("style","width: 100%;height:10%;background-color: blue;")
+    divElement.setAttribute("style","width: 100%;height:10%;background-color: #76d7c4;")
     body[0].append(divElement);
     divElement.append(element);
     divElement.append(errorSpan);

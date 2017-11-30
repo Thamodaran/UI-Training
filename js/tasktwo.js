@@ -1,7 +1,41 @@
+function checkValidations(element) {
+  // var isValidate = true;
+  var id = element.id;
+  var thisElement = document.getElementById(id);
+  // var onlyNumbers = new RegExp("[^0-9]");
+  var errorSpan = document.getElementById("error_"+element.id);
+  // if (onlyNumbers.test(element.value)) {
+  if(element.id == 'positive-x'){
+    if (element.value < 0) {
+      setErrorStyle(thisElement, id, errorSpan);
+      errorSpan.innerHTML = 'Positive values only Accept';
+      thisElement.value = '';
+      thisElement.focus();
+    } else {
+      thisElement.setAttribute("style","border: 1px solid black;");
+      errorSpan.style.display='none';
+    }
+  } else if(element.id == 'negative-x'){
+    if (element.value > 0) {
+        setErrorStyle(thisElement, id, errorSpan);
+        errorSpan.innerHTML = 'Negative values only Accept';
+        thisElement.value = '';
+        thisElement.focus();
+    } else {
+      thisElement.setAttribute("style","border: 1px solid black;");
+      errorSpan.style.display='none';
+    }
+  }
+}
+function setErrorStyle (thisElement, id, errorSpan) {
+    thisElement.setAttribute("style","border: 1px solid red;");
+    errorSpan.style.display='inline-block';
+    errorSpan.style.color='red';
+    console.log(errorSpan.style.display);
+    errorSpan.style.margin='0 0 0 10px';
+}
+
 function drawGraphValues() {
-if(isValid) { 
-    removeAllChildrens();
-  // var validation = checkValidations();
   var negative = document.getElementById("negative-x").value;
   var positive = document.getElementById("positive-x").value;
   var milli = parseInt(document.getElementById("milli").value)+1;
@@ -20,7 +54,6 @@ if(isValid) {
       positiveCount++;
    }
    for (var noOfSpan = 0; noOfSpan < document.getElementsByName('negative-span').length; noOfSpan++) {
-
      for (var j = 0; j < milli; j++) {
        var milliwidth = (parseInt(document.getElementsByName('negative-span')[noOfSpan].style.width) / milli)-1;
       document.getElementsByName('negative-span')[noOfSpan].innerHTML += '<span style="display: inline-block;border-right: 1px solid black;width: '+milliwidth+'px;height: 10px;position: relative;left: 1px;"></span>';
@@ -39,46 +72,10 @@ if(isValid) {
      document.styleSheets[0].addRule('.positive-span_'+noOfSpan+'::after','content: "'+positiveCount+'"','position:"reletive"','left: 20px;' );
      pcount--;
    }
-}else {
-    return false;
 }
-}
-
 function removeAllChildrens() {
     var myNode = document.getElementById("content");
     while (myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
     }
-}
-
-function checkValidations(element) {
-  var isValid = true;
-  var id = element.id;
-  var thisElement = document.getElementById(id);
-  var onlyNumbers = new RegExp("[^0-9]");
-  var errorSpan = document.getElementById("error_"+element.id);
-  if (onlyNumbers.test(element.value)) {
-    setErrorStyle(thisElement, id, errorSpan);
-    thisElement.focus();
-    isValid = false;
-  } else {
-    thisElement.setAttribute("style","border: 1px solid black;");    
-    errorSpan.style.display='none';
-    isValid = true;
-  }
-  if (element.value > 0) {
-      setErrorStyle(thisElement, id, errorSpan);
-      errorSpan.innerHTML = 'Negative values only Accept';
-      isValid = false;
-  } else {
-    thisElement.setAttribute("style","border: 1px solid black;");    
-    errorSpan.style.display='none';
-    isValid = true;  
-  }
-}
-function setErrorStyle (thisElement, id, errorSpan) {
-    thisElement.setAttribute("style","border: 1px solid red;");    
-    errorSpan.style.display='inline-block';
-    errorSpan.style.color='red';
-    errorSpan.style.margin='0 0 0 10px';
 }
