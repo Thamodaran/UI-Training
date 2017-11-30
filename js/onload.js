@@ -1,14 +1,17 @@
 window.onload = function(){
-  var body = document.getElementsByTagName("BODY");
-  var elements = [{"element":"input","id": "negative-x", "type": "text","method":"checkValidations(this);","event": "onkeyup"},
-                  {"element":"input","id": "positive-x", "type": "text","method":"checkValidations(this);","event": "onkeyup"},
-                  {"element":"input","id": "milli", "type": "text","method":"checkValidations(this);","event": "onkeyup"},
+  var body = document.getElementsByTagName("BODY");  
+  var elements = [{"element":"input","id": "negative-x", "type": "text","method":"checkValidations(this);","event": "onchange"},
+                  {"element":"input","id": "positive-x", "type": "text","method":"checkValidations(this);","event": "onchange"},
+                  {"element":"input","id": "milli", "type": "text","method":"checkValidations(this);","event": "onchange"},
                   {"element":"input","id": "click-me", "type": "submit","method":"drawGraphValues();","event": "onclick"}];
   for (var i = 0; i < elements.length; i++) {
     var element = renderElement(elements[i]);
     var errorSpan = createErrorSpan(elements[i]);
-    body[0].append(element);
-    body[0].append(errorSpan);
+    var divElement = document.createElement("div");
+    divElement.setAttribute("style","width: 100%;height:10%;background-color: blue;")
+    body[0].append(divElement);
+    divElement.append(element);
+    divElement.append(errorSpan);
   }
 
   var contentDiv = document.createElement("div");
@@ -21,6 +24,8 @@ window.onload = function(){
 function createErrorSpan(element) {
   var errorSpan = document.createElement("span");
   errorSpan.setAttribute("id","error_"+element.id);
+  errorSpan.setAttribute("style", "display: none")
+  errorSpan.innerHTML = 'Numbers only allowed';
   return errorSpan;
 }
 

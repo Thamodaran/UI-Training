@@ -1,5 +1,6 @@
 function drawGraphValues() {
-  removeAllChildrens();
+if(isValid) { 
+    removeAllChildrens();
   // var validation = checkValidations();
   var negative = document.getElementById("negative-x").value;
   var positive = document.getElementById("positive-x").value;
@@ -38,6 +39,9 @@ function drawGraphValues() {
      document.styleSheets[0].addRule('.positive-span_'+noOfSpan+'::after','content: "'+pcount+'"','position:"reletive"','left: 20px;' );
      pcount--;
    }
+}else {
+    return false;
+}
 }
 
 function removeAllChildrens() {
@@ -48,33 +52,33 @@ function removeAllChildrens() {
 }
 
 function checkValidations(element) {
-  console.log(element.value);
-  console.log(element.id);
-  id = element.id;
+  var isValid = true;
+  var id = element.id;
+  var thisElement = document.getElementById(id);
   var onlyNumbers = new RegExp("[^0-9]");
-  // console.log(onlyNumbers.test(element.value));
+  var errorSpan = document.getElementById("error_"+element.id);
   if (onlyNumbers.test(element.value)) {
-    document.getElementById(id).setAttribute("style","border: 1px solid red;");
-    document.getElementById("error_"+element.id);
-    error.innerHTML("test");
-    // console.log(element.style,"border: 1px solid red;");
-    // console.log(element.style.border:"1px solid red");
+    setErrorStyle(thisElement, id, errorSpan);
+    thisElement.focus();
+    isValid = false;
+  } else {
+    thisElement.setAttribute("style","border: 1px solid black;");    
+    errorSpan.style.display='none';
+    isValid = true;
   }
-  // var value = getElementById();
-  // var negative = document.getElementById("negative-x").value;
-  // var positive = document.getElementById("positive-x").value;
-  // var milli = parseInt(document.getElementById("milli").value)+1;
-  // if(negative > 0) {
-  //   document.getElementById("negative-x").setAttribute("style","border: 1px solid red;")
-  //   return false;
-  // } else {
-  //   document.getElementById("negative-x").setAttribute("style","border: 1px solid black;")
-  // }
-  // if(positive < 0) {
-  //   document.getElementById("positive-x").setAttribute("style","border: 1px solid red;")
-  //   return false;
-  // } else {
-  //   document.getElementById("positive-x").setAttribute("style","border: 1px solid black;")
-  // }
-  // return false;
+  if (element.value > 0) {
+      setErrorStyle(thisElement, id, errorSpan);
+      errorSpan.innerHTML = 'Negative values only Accept';
+      isValid = false;
+  } else {
+    thisElement.setAttribute("style","border: 1px solid black;");    
+    errorSpan.style.display='none';
+    isValid = true;  
+  }
+}
+function setErrorStyle (thisElement, id, errorSpan) {
+    thisElement.setAttribute("style","border: 1px solid red;");    
+    errorSpan.style.display='inline-block';
+    errorSpan.style.color='red';
+    errorSpan.style.margin='0 0 0 10px';
 }
