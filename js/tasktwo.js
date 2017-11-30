@@ -4,7 +4,7 @@ if(isValid) {
   // var validation = checkValidations();
   var negative = document.getElementById("negative-x").value;
   var positive = document.getElementById("positive-x").value;
-  var milli = parseInt(document.getElementById("milli").value)+1;  
+  var milli = parseInt(document.getElementById("milli").value)+1;
   var spanElement = document.createElement('span');
   document.getElementById("content").appendChild(spanElement);
   spanElement.setAttribute("id","line-graph");
@@ -17,13 +17,13 @@ if(isValid) {
    var positiveCount = 0;
    for (var pcount = 0; pcount < positive; pcount++) {
       document.getElementById('line-graph').insertAdjacentHTML('afterbegin', '<span name="positive-span" class="positive-span_'+positiveCount+'" style="display: inline-block;border-top: 1px solid black;border-right: 1px solid black;width: 40px;height: 15px;"></span>');
-      positiveCount++;        
+      positiveCount++;
    }
    for (var noOfSpan = 0; noOfSpan < document.getElementsByName('negative-span').length; noOfSpan++) {
-       
+
      for (var j = 0; j < milli; j++) {
        var milliwidth = (parseInt(document.getElementsByName('negative-span')[noOfSpan].style.width) / milli)-1;
-      document.getElementsByName('negative-span')[noOfSpan].innerHTML += '<span style="display: inline-block;border-right: 1px solid black;width: '+milliwidth+'px;height: 10px;position: relative;left: 1px;"></span>';      
+      document.getElementsByName('negative-span')[noOfSpan].innerHTML += '<span style="display: inline-block;border-right: 1px solid black;width: '+milliwidth+'px;height: 10px;position: relative;left: 1px;"></span>';
      }
      document.styleSheets[0].addRule('.negative-span_'+noOfSpan+'::after','content: "'+ncount+'"');
      ncount++;
@@ -36,7 +36,7 @@ if(isValid) {
      positiveCount--;
      parseInt(noOfSpan+1);
      console.log(noOfSpan);
-     document.styleSheets[0].addRule('.positive-span_'+noOfSpan+'::after','content: "'+pcount+'"','position:"reletive"','left: 20px;' );
+     document.styleSheets[0].addRule('.positive-span_'+noOfSpan+'::after','content: "'+positiveCount+'"','position:"reletive"','left: 20px;' );
      pcount--;
    }
 }else {
